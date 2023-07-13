@@ -1,23 +1,17 @@
-import Express from "express";
-import ProductManager from "./ProductManager";
+import express from "express";
+import productRouter from "./router/products.router.js";
 
-const app = Express();
+const app = express();
 const PORT = 8080;
-const productManager = new ProductManager("./products.json");
+
+app.use(express.json());
 
 app.get("/", (req, res) => {
   res.send("hola mundo");
 });
 
-app.get("/products", async (req, res) => {
-  try {
-    let response = await productManager.getProducts();
-    console.log(response);
-  } catch (err) {
-    console.log(err);
-  }
-});
+app.use("/api/products", productRouter);
 
 app.listen(PORT, () => {
-  console.log("server is running in port" + PORT);
+  console.log("servidor esta running en el puerto" + PORT);
 });
