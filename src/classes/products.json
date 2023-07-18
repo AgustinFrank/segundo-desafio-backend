@@ -1,6 +1,6 @@
 [
   {
-    "name": "airforce",
+    "title": "airforce",
     "price": 250,
     "description": "none",
     "thumbnail": "none",
@@ -9,7 +9,7 @@
     "id": 1
   },
   {
-    "name": "nike",
+    "title": "nike",
     "price": 260,
     "description": "none",
     "thumbnail": "none",

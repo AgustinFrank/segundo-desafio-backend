@@ -9,15 +9,15 @@ class ProductManager {
     const products = await fs.promises.readFile(this.path, "utf-8");
     return JSON.parse(products);
   }
-  async addProducts(name, price, description, thumbnail, code, stock) {
+  async addProducts(title, price, description, thumbnail, code, stock) {
     try {
       const found = this.products.find((product) => product.code === code);
       if (found) {
         return "el producto existe";
       }
-      if (name && price && description && thumbnail && code && stock) {
+      if (title && price && description && thumbnail && code && stock) {
         this.products.push({
-          name: name,
+          title: title,
           price: price,
           description: description,
           thumbnail: thumbnail,
@@ -60,9 +60,4 @@ class ProductManager {
 
 const productManager = new ProductManager();
 
-productManager.addProducts("airforce", 250, "none", "none", 145, 2);
-productManager.addProducts("nike", 260, "none", "none", 162, 1);
-productManager.getProducts();
-productManager.getProductsById(1);
-productManager.deleteProduct(1);
-console.log(productManager);
+export default productManager;

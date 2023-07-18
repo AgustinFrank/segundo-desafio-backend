@@ -51,7 +51,6 @@ router.post("/", async (req, res) => {
   } else {
     product.title = title;
     product.description = description;
-
     product.code = code;
     product.price = price;
     product.status = !status || typeof status !== "boolean" ? true : status;
@@ -102,7 +101,7 @@ router.put("/:pid", async (req, res) => {
     ) {
       res.json({ message: "faltan datos" });
     }
-    //actualizamos nuestro producto temporal
+
     productTemp.title = title;
     productTemp.description = description;
     productTemp.code = code;
